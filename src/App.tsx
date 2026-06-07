@@ -1,20 +1,27 @@
 import { useState } from "react";
 import styles from "./index.module.css"; 
 import moduleStyles from "./App.module.css";
-import clsx from "clsx";
 
 export default function App() {
   const [query, setQuery] = useState("");
 
-  const search = () => {
-    window.location.href =
-      "https://www.google.com/search?q=" +
-      encodeURIComponent(query);
+  const handleSearch = () => {
+    window.location.href = `https://google.com/search?q=${encodeURIComponent(query)}`;
   };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  // Determine visibility modifier class
+  const visibilityClass = query.startsWith(';b') 
+    ? moduleStyles.visible 
+    : moduleStyles.hidden;
 
   return (
     <div className={styles.root}>
-      <div style={{height: 'calc(5% + 7rem)'}}></div>
       <div className={moduleStyles.controlsWrap}>
         <div className={moduleStyles.searchBar}>
           <input
@@ -23,24 +30,14 @@ export default function App() {
             placeholder="输入要搜索的内容"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            onKeyDown={(e) => {
-                if (e.key === "Enter") {
-                  search();
-              }}
-            }
+            onKeyDown={handleKeyDown}
           />
-          <button
-          onClick={search}
-          className={moduleStyles.button}
-          >
+          <button onClick={handleSearch} className={moduleStyles.button}>
             搜索
           </button>
         </div>
-        <div className={clsx(moduleStyles.bookmarks, query.startsWith(';b') ? moduleStyles.visible : moduleStyles.hidden)}>
-            
-        </div>
+        <div className={`${moduleStyles.bookmarks} ${visibilityClass}`} />
       </div>
-      <div></div>
     </div>
   );
 }

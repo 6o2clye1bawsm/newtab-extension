@@ -1,8 +1,9 @@
 .controlsWrap{
-  width: -webkit-fill-available;
+  width: 100%;
   max-width:calc(24% + 24rem);
-  height: -webkit-fill-available;
+  height: 100%;
   max-height: calc(19% + 7rem);
+  margin-top: calc(5% + 7rem);
 }
 
 .searchBar {
@@ -55,51 +56,19 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .searchBar {
-    background-color: #333333;
-    border-color: #3f3f3f;
-  }
-
-  .input {
-    color: #e0e0e0;
-  }
-
-  .button {
-    background-color: #212121;
-    color: #eee;
-  }
-
+  .searchBar { background-color: #333333; border-color: #3f3f3f; }
+  .input { color: #e0e0e0; }
+  .button { background-color: #212121; color: #eee; }
   .button:hover,
-  .button:focus {
-    background-color: #151515;
-  }
-
-  .button:active {
-    background-color: #212121;
-  }
+  .button:focus { background-color: #151515; }
+  .button:active { background-color: #212121; }
 }
 
 @media (prefers-color-scheme: light) {
-  .searchBar {
-    background-color: #E3E3E3;
-    border-color: #CACACA;
-  }
-
-  .input {
-    color: #424242;
-  }
-
-  .button {
-    background-color: #eee;
-    color: #333;
-  }
-
+  .searchBar { background-color: #E3E3E3; border-color: #CACACA; }
+  .input { color: #424242; }
+  .button { background-color: #eee; color: #333; }
   .button:hover,
-  .button:focus {
-    background-color: #f6f6f6;
-  }
-
-  .button:active {
-    background-color: #eee;
-  }
+  .button:focus { background-color: #f6f6f6; }
+  .button:active { background-color: #eee; }
 }
