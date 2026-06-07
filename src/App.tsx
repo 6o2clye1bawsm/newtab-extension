@@ -15,15 +15,18 @@ export default function App() {
     }
   };
 
-  // Determine visibility modifier class
   const visibilityClass = query.startsWith(';b') 
     ? moduleStyles.visible 
     : moduleStyles.hidden;
 
+  const roundingClass = query.startsWith(';b')
+    ? moduleStyles.unrounded
+    : moduleStyles.rounded;
+
   return (
     <div className={styles.root}>
       <div className={moduleStyles.controlsWrap}>
-        <div className={moduleStyles.searchBar}>
+        <div className={`${moduleStyles.searchBar} ${roundingClass}`}>
           <input
             autoFocus
             className={moduleStyles.input}

@@ -12,9 +12,18 @@
   align-items: center;
   width: 100%;
   height: 2.3rem;
-  border-radius: .5rem .5rem 0 0;
   border-style: solid;
   border-width: .11rem;
+}
+
+.unrounded {
+  border-radius: .5rem .5rem 0 0;
+  transition: all 0.8s ease;
+}
+
+.rounded {
+  border-radius: .5rem;
+  transition: all 0.8s ease;
 }
 
 .input {
@@ -49,10 +58,23 @@
 
 .hidden {
   display: none !important;
+  transform: translateY(-100%);
+  transition:
+    display 0.5s allow-discrete, /* Permits display property to wait for transition */
+    all 0.5s ease;
 }
 
 .visible {
-  display: block; 
+  z-index: 0;
+  display: block;
+  transform: translateY(0%);
+  transition: all 0.5s ease;
+}
+
+@starting-style {
+  .visible {
+    transform: translateY(-100%);
+  }
 }
 
 @media (prefers-color-scheme: dark) {
