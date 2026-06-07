@@ -1,0 +1,39 @@
+:root {
+  font-size: 18px;
+}
+
+html,
+body,
+body > div {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Sniglet', 'ZCOOL KuaiLe';
+  font-weight: 400;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    background-color: #212121;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html {
+    background-color: #eee;
+  }
+}
+
+.root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}

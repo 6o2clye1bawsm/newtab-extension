@@ -1,0 +1,12 @@
+{
+   "name": "new tab",
+   "manifest_version": 3,
+   "version": "1.0.3",
+   "description": "new tab",
+   "icons": {
+      "256": "icons/icon.png"
+   },
+   "chrome_url_overrides": {
+      "newtab": "index.html"
+   }
+}
