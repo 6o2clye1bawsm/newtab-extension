@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css"; 
 import moduleStyles from "./App.module.css";
+import clsx from "clsx";
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -35,7 +36,7 @@ export default function App() {
             搜索
           </button>
         </div>
-        <div className={moduleStyles.bookmarks}>
+        <div className={clsx(moduleStyles.bookmarks, query.startsWith(';b') ? moduleStyles.visible : moduleStyles.hidden)}>
             
         </div>
       </div>
