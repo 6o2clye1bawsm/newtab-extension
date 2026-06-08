@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.css"; 
 import moduleStyles from "./App.module.css";
+import BookmarksBox from "./BookmarksBox.tsx"
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -15,9 +16,6 @@ export default function App() {
     }
   };
 
-  const visibilityClass = query.startsWith(';b') 
-    ? moduleStyles.visible 
-    : moduleStyles.hidden;
 
   const roundingClass = query.startsWith(';b')
     ? moduleStyles.unrounded
@@ -39,7 +37,7 @@ export default function App() {
             搜索
           </button>
         </div>
-        <div className={`${moduleStyles.bookmarks} ${visibilityClass}`} />
+        <BookmarksBox visibility={query.startsWith(";b")}/>
       </div>
     </div>
   );
