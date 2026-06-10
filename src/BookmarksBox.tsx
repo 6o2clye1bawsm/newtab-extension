@@ -10,7 +10,7 @@ const BookmarkItem = ({ node }: { node: chrome.bookmarks.BookmarkTreeNode }) => 
   // Scenario A: It's a direct bookmark link
   if (node.url) {
     return (
-      <li>
+      <li className={bookmarkStyles.bookmarkItem}>
         <a href={node.url} target="_blank" rel="noreferrer">
           {node.title}
         </a>
@@ -21,7 +21,7 @@ const BookmarkItem = ({ node }: { node: chrome.bookmarks.BookmarkTreeNode }) => 
   // Scenario B: It's a folder containing more bookmarks
   if (node.children && node.children.length > 0) {
     return (
-      <li>
+      <li className={bookmarkStyles.bookmarkFolder}>
         <span>{node.title}</span>
         <ul>
           {node.children.map((child) => (
@@ -58,7 +58,7 @@ export default function BookmarksBox({ visibility }: BookmarksBoxProps) {
 
   return (
     <div className={`${bookmarkStyles.bookmarksBox} ${visibilityClass}`}>
-      <ul>
+      <ul style={{ paddingLeft: 0 }}>
         {bookmarkTree.map((node) => (
           <BookmarkItem key={node.id} node={node} />
         ))}
