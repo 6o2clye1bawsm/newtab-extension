@@ -60,7 +60,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  .searchBar { background-color: #333333; border-color: #3f3f3f; }
+  .searchBar { background-color: #1e1f20; border-color: #3f3f3f; }
   .input { color: #e0e0e0; }
   .button { background-color: #212121; color: #eee; }
   .button:hover,
