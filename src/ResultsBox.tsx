@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import bookmarkStyles from "./BookmarksBox.module.css";
+import resultBoxStyles from "./ResultsBox.module.css";
 
 interface BookmarksBoxProps {
-  visibility:boolean;
+  query: string;
+  visibility: boolean;
 }
 
 // 2. The React-way to handle recursion: A self-referencing component
@@ -10,7 +11,7 @@ const BookmarkItem = ({ node }: { node: chrome.bookmarks.BookmarkTreeNode }) => 
   // Scenario A: It's a direct bookmark link
   if (node.url) {
     return (
-      <li className={bookmarkStyles.bookmarkItem}>
+      <li className={resultBoxStyles.bookmarkItem}>
         <a href={node.url} target="_blank" rel="noreferrer">
           {node.title}
         </a>
@@ -21,7 +22,7 @@ const BookmarkItem = ({ node }: { node: chrome.bookmarks.BookmarkTreeNode }) => 
   // Scenario B: It's a folder containing more bookmarks
   if (node.children && node.children.length > 0) {
     return (
-      <li className={bookmarkStyles.bookmarkFolder}>
+      <li className={resultBoxStyles.bookmarkFolder}>
         <span>{node.title}</span>
         <ul>
           {node.children.map((child) => (
@@ -53,11 +54,11 @@ export default function BookmarksBox({ visibility }: BookmarksBoxProps) {
   }, []);
 
   const visibilityClass = visibility
-    ? bookmarkStyles.visible
-    : bookmarkStyles.hidden;
+    ? resultBoxStyles.visible
+    : resultBoxStyles.hidden;
 
   return (
-    <div className={`${bookmarkStyles.bookmarksBox} ${visibilityClass}`}>
+    <div className={`${resultBoxStyles.bookmarksBox} ${visibilityClass}`}>
       <ul style={{ paddingLeft: 0 }}>
         {bookmarkTree.map((node) => (
           <BookmarkItem key={node.id} node={node} />
