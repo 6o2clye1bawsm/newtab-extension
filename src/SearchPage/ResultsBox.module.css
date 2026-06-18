@@ -1,0 +1,33 @@
+
+
+.bookmarksBox {
+  background-color: red;
+  height: calc(100% - 2.3rem);
+  width: 100%;
+  border-radius: 0 0 .5rem .5rem;
+  overflow: overlay;
+  padding-left: 10px;
+}
+
+.hidden {
+  display: none !important;
+  transform: translateY(-100%);
+  transition:
+    display 0.5s allow-discrete, /* Permits display property to wait for transition */
+    all 0.5s ease;
+}
+
+.visible {
+  z-index: 0;
+  display: block;
+  transform: translateY(0%);
+  transition: all 0.5s ease;
+}
+
+.bookmarkItem {
+  background-color: aliceblue;
+}
+
+.bookmarkFolder {
+  background-color: green;
+}
