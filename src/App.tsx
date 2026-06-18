@@ -10,7 +10,7 @@ export default function App() {
       <div className={moduleStyles.controlsWrap}>
         <SearchPage />
       </div>
-      <Canvas />
+      <Canvas draw={(ctx)=>{ctx.fillStyle = "red"; ctx.fillRect(10,10,50,50)}}/>
     </div>
   );
 }
