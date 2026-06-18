@@ -7,7 +7,7 @@
   max-width:calc(24% + 24rem);
   height: 100%;
   max-height: calc(19% + 7rem);
-  margin-top: calc(5% + 7rem);
+  margin-top: calc(5% + .5rem);
 }
 
 @starting-style {
