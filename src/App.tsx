@@ -3,8 +3,8 @@ import { useState } from "react";
 import styles from "./index.module.css"; 
 import moduleStyles from "./App.module.css";
 
-import BookmarksBox from "./ResultsBox.tsx"
-import SearchBar from "./SearchBar.tsx";
+import BookmarksBox from "./components/ResultsBox.tsx"
+import SearchBar from "./components/SearchBar.tsx";
 
 function SearchPage() {
   const [query, setQuery] = useState("");
