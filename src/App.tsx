@@ -11,13 +11,21 @@ export default function App() {
         <SearchPage />
       </div>
       <Canvas
+        height={1500}
+        width={2500}
+        style={{ width: '250px', height: '150px', imageRendering: 'pixelated' }}
         draw={(ctx) => {
-          ctx.fillStyle = 'red';
-          ctx.fillRect(10, 10, 50, 50);
+          const { width, height } = ctx.canvas;
+          ctx.clearRect(0, 0, width, height);
 
-          ctx.fillStyle = 'rgba(50, 241, 226, 0.5)';
-          ctx.fillText('hello', 30, 30, 20);
-          ctx.fillRect(30, 30, 50, 50);
+          ctx.strokeStyle = 'red';
+          ctx.fillStyle = 'red';
+          ctx.moveTo(120, 100);
+          ctx.lineTo(400, 150);
+          ctx.lineTo(350, 430);
+          ctx.lineTo(70, 380);
+          ctx.closePath();
+          ctx.fill();
         }}
       />
     </div>

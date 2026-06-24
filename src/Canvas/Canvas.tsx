@@ -2,17 +2,13 @@ import { useEffect, useRef } from 'react';
 
 import canvasStyles from './Canvas.module.css';
 
-interface CanvasProps {
+interface CanvasProps extends React.CanvasHTMLAttributes<HTMLCanvasElement> {
   draw: (ctx: CanvasRenderingContext2D) => void;
   width?: number;
   height?: number;
 }
 
-export default function Canvas({
-  draw,
-  width = 300,
-  height = 150,
-}: CanvasProps) {
+export default function Canvas({ draw, width, height, style }: CanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -27,10 +23,11 @@ export default function Canvas({
 
   return (
     <canvas
-      ref={canvasRef}
       width={width}
       height={height}
+      ref={canvasRef}
       className={canvasStyles.canvas}
+      style={style}
     ></canvas>
   );
 }
