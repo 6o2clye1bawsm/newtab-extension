@@ -1,7 +1,7 @@
 {
    "name": "new tab",
    "manifest_version": 3,
-   "version": "1.0.3",
+   "version": "1.1.0",
    "description": "new tab",
    "icons": {
       "256": "icons/icon.png"
